@@ -41,6 +41,7 @@ let i;
 myButtonForward.addEventListener('click', function(){
     
     if (counter < myImages.length-1) {
+
     counter += 1;
 
     
@@ -53,13 +54,16 @@ myButtonForward.addEventListener('click', function(){
 
 myButtonBack.addEventListener('click', function(){
 
-    counter -= 1;
 
-    for (i = myImages.length -1 ; i >= 0; i--) {
+    // for (i = myImages.length -1 ; i >= 0; i--) {
 
-        if (counter == i) {
+        if ((counter !== myImages.length) && (counter !== 0)  ) {
 
-            myCard.innerHTML = myImages[i];
+            counter -= 1;
+
+            myCard.innerHTML = myImages[counter];
+
+            console.log(counter);
 
         }
         // } else (counter < i) {
@@ -68,8 +72,7 @@ myButtonBack.addEventListener('click', function(){
 
         // }
 
-    }
+    // }
 
-    console.log(counter);
 
 })
