@@ -30,6 +30,8 @@ console.log('Avanti', myButtonForward, typeof myButtonForward);
 
 const myCard = document.querySelector('.my-card');
 
+// All'apertura del browser voglio che la prima immagine sia presente nel contenitore perciò la stampo nell'HTML
+
 myCard.innerHTML = myImages[0];
 
 let counter = 0;
@@ -52,10 +54,10 @@ myButtonForward.addEventListener('click', function(){
     }
 })
 
+// Creo l'evento che si verifica al clic del bottone "indietro" 
+
 myButtonBack.addEventListener('click', function(){
 
-
-    // for (i = myImages.length -1 ; i >= 0; i--) {
 
         if ((counter !== myImages.length) && (counter !== 0)  ) {
 
@@ -66,13 +68,5 @@ myButtonBack.addEventListener('click', function(){
             console.log(counter);
 
         }
-        // } else (counter < i) {
-            
-            
-
-        // }
-
-    // }
-
 
 })
