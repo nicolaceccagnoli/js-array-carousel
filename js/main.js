@@ -19,9 +19,42 @@ const myImages = [
 console.log('myImages', myImages, typeof myImages);
 
 // Prendo i bottoni dall'HTML e li inserisco in delle variabili
+const myButtonBack = document.querySelector('.my-button-back');
+console.log('Indietro', myButtonBack, typeof myButtonBack);
+
 
 const myButtonForward = document.querySelector('.my-button-forward');
 console.log('Avanti', myButtonForward, typeof myButtonForward);
 
-const myButtonBack = document.querySelector('.my-button-back');
-console.log('Indietro', myButtonForward, typeof myButtonForward);
+// Prendo il contenitore dall'HTML e lo inserisco in una variabile
+
+const myCard = document.querySelector('.my-card');
+
+myCard.innerHTML = myImages[0];
+
+let counter = 0;
+
+// Creo l'evento che si verifica al clic del bottone "avanti" 
+
+myButtonForward.addEventListener('click', function(){
+
+    counter += 1;
+
+    console.log(counter);
+
+    for (let i = 0; i < myImages.length; i++) {
+
+        if (counter == i) {
+
+            myCard.innerHTML = myImages[i];
+
+        }
+        // } else (counter < i) {
+            
+            
+
+        // }
+
+    }
+})
+
