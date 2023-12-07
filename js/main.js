@@ -34,6 +34,8 @@ myCard.innerHTML = myImages[0];
 
 let counter = 0;
 
+let i;
+
 // Creo l'evento che si verifica al clic del bottone "avanti" 
 
 myButtonForward.addEventListener('click', function(){
@@ -58,3 +60,24 @@ myButtonForward.addEventListener('click', function(){
     }
 })
 
+myButtonBack.addEventListener('click', function(){
+
+    counter -= 1;
+
+    for (i = myImages.length -1 ; i >= 0; i--) {
+
+        if (counter == i) {
+
+            myCard.innerHTML = myImages[i];
+
+        }
+
+        console.log(counter);
+        // } else (counter < i) {
+            
+            
+
+        // }
+
+    }
+})
