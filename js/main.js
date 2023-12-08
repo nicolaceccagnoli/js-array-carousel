@@ -80,12 +80,14 @@ myButtonBack.addEventListener('click', function(){
 
         // Da Fissare
 
-        }  else if ((counter == 0) && (counterInverse !== 0)) {
+        }  else if (counter == 0) {
 
-            counterInverse --
+            counter--;
 
-            myCard.innerHTML = myImages[counterInverse];
+            counter = myImages.length-1;
 
-            console.log(counterInverse);
+            myCard.innerHTML = myImages[4];
+
+            console.log(counter);
         }
 })
