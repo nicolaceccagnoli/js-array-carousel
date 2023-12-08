@@ -60,6 +60,10 @@ myButtonForward.addEventListener('click', function(){
     }
 })
 
+// Creo una nuova variabile contatore che parta dalla fine dell'Array
+
+let counterInverse = (myImages.length);
+
 // Creo l'evento che si verifica al clic del bottone "indietro" 
 
 myButtonBack.addEventListener('click', function(){
@@ -76,15 +80,12 @@ myButtonBack.addEventListener('click', function(){
 
         // Da Fissare
 
-        // }  else if (counter == 0) {
+        }  else if ((counter == 0) && (counterInverse !== 0)) {
 
-        //     let counterInverse = (myImages.length-1);
+            counterInverse --
 
-        //     counterInverse --
+            myCard.innerHTML = myImages[counterInverse];
 
-        //     myCard.innerHTML = myImages[counterInverse];
-
-            
-        //     console.log(counterInverse);
+            console.log(counterInverse);
         }
 })
