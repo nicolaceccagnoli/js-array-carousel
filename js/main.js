@@ -14,7 +14,7 @@ const myImages = [
     `<img src="img/03.webp" alt="">`,
     `<img src="img/04.webp" alt="">`,
     `<img src="img/05.webp" alt="">`
-]
+];
 
 console.log('myImages', myImages, typeof myImages);
 
@@ -36,8 +36,6 @@ myCard.innerHTML = myImages[0];
 
 let counter = 0;
 
-let i;
-
 // Creo l'evento che si verifica al clic del bottone "avanti" 
 
 myButtonForward.addEventListener('click', function(){
@@ -46,11 +44,19 @@ myButtonForward.addEventListener('click', function(){
 
     counter += 1;
 
-    
     myCard.innerHTML = myImages[counter];
 
-
     console.log(counter);
+
+    // Creo la condizione per cui se l'album finisce allora riparte dalla 1^ immagine
+    } else if (counter == myImages.length-1) {
+        
+        counter = 0;
+
+        myCard.innerHTML = myImages[counter]
+
+        console.log(counter);
+
     }
 })
 
@@ -58,15 +64,27 @@ myButtonForward.addEventListener('click', function(){
 
 myButtonBack.addEventListener('click', function(){
 
+    if ((counter !== myImages.length) && (counter !== 0)) {
 
-        if ((counter !== myImages.length) && (counter !== 0)  ) {
+        counter -= 1;
 
-            counter -= 1;
+        myCard.innerHTML = myImages[counter];
 
-            myCard.innerHTML = myImages[counter];
+        console.log(counter);
 
-            console.log(counter);
+        // Creo la condizione per cui se ci si trova sulla 1^ immagine allora l'album può fare il giro al contrario
 
+        // Da Fissare
+
+        // }  else if (counter == 0) {
+
+        //     let counterInverse = (myImages.length-1);
+
+        //     counterInverse --
+
+        //     myCard.innerHTML = myImages[counterInverse];
+
+            
+        //     console.log(counterInverse);
         }
-
 })
