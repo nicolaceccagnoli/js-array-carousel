@@ -9,11 +9,11 @@
 // 1) Rimuovere il markup statico e inserisco le immagini in un Array; 
 
 const myImages = [
-    `<img src="img/01.webp" alt="">`,
-    `<img src="img/02.webp" alt="">`,
-    `<img src="img/03.webp" alt="">`,
-    `<img src="img/04.webp" alt="">`,
-    `<img src="img/05.webp" alt="">`
+    `<img src="img/01.webp" alt="Spiderman Miles Morales">`,
+    `<img src="img/02.webp" alt="Ratchet">`,
+    `<img src="img/03.webp" alt="Fortnite">`,
+    `<img src="img/04.webp" alt="Cyberpunk">`,
+    `<img src="img/05.webp" alt="The Avengers">`
 ];
 
 console.log('myImages', myImages, typeof myImages);
@@ -28,7 +28,7 @@ console.log('Avanti', myButtonForward, typeof myButtonForward);
 
 // Prendo il contenitore dall'HTML e lo inserisco in una variabile
 
-const myCard = document.querySelector('.my-card');
+const myCard = document.querySelector('#my-card');
 
 // All'apertura del browser voglio che la prima immagine sia presente nel contenitore perciò la stampo nell'HTML
 
@@ -49,7 +49,7 @@ myButtonForward.addEventListener('click', function(){
     console.log(counter);
 
     // Creo la condizione per cui se l'album finisce allora riparte dalla 1^ immagine
-    } else if (counter == myImages.length-1) {
+    } else if (counter !== myImages.length) {
         
         counter = 0;
 
@@ -78,8 +78,6 @@ myButtonBack.addEventListener('click', function(){
 
         // Creo la condizione per cui se ci si trova sulla 1^ immagine allora l'album può fare il giro al contrario
 
-        // Da Fissare
-
         }  else if (counter == 0) {
 
             counter--;
@@ -91,3 +89,65 @@ myButtonBack.addEventListener('click', function(){
             console.log(counter);
         }
 })
+
+/* BOUNS 2: 
+
+    1) Crea una Thumbnail dove puoi vedere l'anteprima delle foto nell'album;
+    2) Cliccando sulle foto nella Thumbnail nell'album viene visualizzata la foto corrispondente;
+
+*/
+
+let thumbnailImg1 = document.createElement('img');
+thumbnailImg1.src = 'img/01.webp';
+
+let thumbnailImg2 = document.createElement('img');
+thumbnailImg2.src = 'img/02.webp';
+
+let thumbnailImg3 = document.createElement('img');
+thumbnailImg3.src = 'img/03.webp';
+
+let thumbnailImg4 = document.createElement('img');
+thumbnailImg4.src = 'img/04.webp';
+
+let thumbnailImg5 = document.createElement('img');
+thumbnailImg5.src = 'img/05.webp';
+
+
+const imgListThumbnail = [thumbnailImg1, 
+                          thumbnailImg2, 
+                          thumbnailImg3, 
+                          thumbnailImg4, 
+                          thumbnailImg5];
+
+// 1) Crea una Thumbnail dove puoi vedere l'anteprima delle foto nell'album;
+
+const myThumbnail = document.getElementById('my-thumbnail');
+console.log('myThumbnail', myThumbnail, typeof myThumbnail);
+
+    // Aggiungo delle classi a My Thumbnail
+    myThumbnail.classList.add('d-flex', 'justify-content-around', 'align-items-center', 'rounded');
+
+// Creo un ciclo che mi stampi dei Tag a con all'interno My Images
+
+for (let i = 0; i < imgListThumbnail.length; i ++ ) {
+
+    // Creo un tag "a" all'interno dell'HTML e lo metto Thumbnail
+    let myAnchor = document.createElement('a');
+
+    myAnchor.append(imgListThumbnail[i]);
+    console.log('myAnchor', myAnchor, typeof myAnchor);
+
+    myThumbnail.append(myAnchor);
+
+    imgListThumbnail[i].addEventListener('click', function(){
+
+        myCard.innerHTML = myImages[i];
+
+    })
+
+}
+
+// myThumbnail.append(myAnchor);
+// console.log('myThumbnail', myThumbnail, typeof myThumbnail);
+
+

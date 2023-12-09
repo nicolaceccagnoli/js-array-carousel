@@ -35,11 +35,11 @@ html{
     height: 100vh;
 }
 
-.my-card {
+#my-card {
     width:500px;
 }
 
-.my-card img {
+#my-card img {
     max-width: 100%;
     object-fit: contain;
 }
@@ -48,4 +48,17 @@ button {
     height: 50px;
     width: 50px;
     background-color: white;
+}
+
+#my-thumbnail {
+    width: 350px;
+    background-color: rgba(4, 4, 221, 0.152);
+    border: 1px solid rgb(9, 18, 71);
+}
+
+#my-thumbnail img {
+    max-width: 60px;
+    max-height: 95%;
+    object-fit: contain;
+    cursor: pointer;
 }
