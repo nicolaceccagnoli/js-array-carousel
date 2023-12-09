@@ -97,6 +97,7 @@ myButtonBack.addEventListener('click', function(){
 
 */
 
+// Creo delle variabili con all'interno il tag img  e gli assegno l'immagine di riferimento
 let thumbnailImg1 = document.createElement('img');
 thumbnailImg1.src = 'img/01.webp';
 
@@ -112,7 +113,7 @@ thumbnailImg4.src = 'img/04.webp';
 let thumbnailImg5 = document.createElement('img');
 thumbnailImg5.src = 'img/05.webp';
 
-
+// Creo un array con all'interno le variabili le immagini
 const imgListThumbnail = [thumbnailImg1, 
                           thumbnailImg2, 
                           thumbnailImg3, 
@@ -120,7 +121,6 @@ const imgListThumbnail = [thumbnailImg1,
                           thumbnailImg5];
 
 // 1) Crea una Thumbnail dove puoi vedere l'anteprima delle foto nell'album;
-
 const myThumbnail = document.getElementById('my-thumbnail');
 console.log('myThumbnail', myThumbnail, typeof myThumbnail);
 
@@ -128,17 +128,19 @@ console.log('myThumbnail', myThumbnail, typeof myThumbnail);
     myThumbnail.classList.add('d-flex', 'justify-content-around', 'align-items-center', 'rounded');
 
 // Creo un ciclo che mi stampi dei Tag a con all'interno My Images
-
 for (let i = 0; i < imgListThumbnail.length; i ++ ) {
 
-    // Creo un tag "a" all'interno dell'HTML e lo metto Thumbnail
+    // Creo un tag "a" all'interno dell'HTML
     let myAnchor = document.createElement('a');
 
+    // Appendo alle "a" le immagini dell'Array Thumbnails
     myAnchor.append(imgListThumbnail[i]);
     console.log('myAnchor', myAnchor, typeof myAnchor);
 
+    // Appendo alla Thumbnail le "a"
     myThumbnail.append(myAnchor);
 
+    // Creo l'evento per cui al click di una delle immagini della thumbnail, nell'album si visualizzi l'immagine corrispondente
     imgListThumbnail[i].addEventListener('click', function(){
 
         myCard.innerHTML = myImages[i];
@@ -146,8 +148,3 @@ for (let i = 0; i < imgListThumbnail.length; i ++ ) {
     })
 
 }
-
-// myThumbnail.append(myAnchor);
-// console.log('myThumbnail', myThumbnail, typeof myThumbnail);
-
-
