@@ -30,7 +30,11 @@ console.log('Indietro', myButtonBack, typeof myButtonBack);
 const myButtonForward = document.querySelector('.my-button-forward');
 console.log('Avanti', myButtonForward, typeof myButtonForward);
 
+// Dichiaro la variabile che prenda dall'HTML il Bottone che interrompa l'avanzamento del carosello
 const myButtonIntervalForward = document.querySelector('.btn-interval-forward')
+
+// Dichiaro la variabile che prenda dall'HTML il Bottone che interrompa l'arretramento del carosello
+const myButtonIntervalBack = document.querySelector('.btn-interval-back')
 
 // Prendo il contenitore dall'HTML e lo inserisco in una variabile
 
@@ -43,11 +47,11 @@ myCard.innerHTML = myImages[0];
 let counter = 0;
 
 // Creo la Variabile nella quale setto l'intervallo di tempo per cui il carosello debba andare avanti tra le immagini ogni 3s
-let carouselForward = setInterval(intervalPlayForward, 3000);
-console.log('carouselForward', carouselForward, typeof carouselForward)
+// let carouselForward = setInterval(intervalPlayForward, 3000);
+// console.log('carouselForward', carouselForward, typeof carouselForward)
 
 // Creo la Variabile nella quale setto l'intervallo di tempo per cui il carosello debba andare indietro tra le immagini ogni 3s
-// let carouselBack = setInterval(intervalPlayBack, 3000);
+let carouselBack = setInterval(intervalPlayBack, 3000);
 
 
 // Creo l'evento per cui il carosello debba smettere di andare in avanti secondo l'intervallo
@@ -59,6 +63,18 @@ myButtonIntervalForward.addEventListener('click', function(){
         carouselForward = null;
     }   else {
         carouselForward = setInterval(intervalPlayForward, 3000);
+    }
+})
+
+// Creo l'evento per cui il carosello debba smettere di andare indietro secondo l'intervallo
+myButtonIntervalBack.addEventListener('click', function(){
+    // Setto la condizione per cui la variabile sia valida o nulla
+    if (carouselBack != null) {
+        clearInterval(carouselBack);
+
+        carouselBack = null;
+    }   else {
+        carouselBack = setInterval(intervalPlayBack, 3000);
     }
 })
 

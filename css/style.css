@@ -46,13 +46,22 @@ html{
     object-fit: contain;
 }
 
-button {
+.btn-interval-forward {
     /* height: 50px;
     width: 50px; */
     background-color: white;
     position: fixed;
     top: 50px;
 }
+
+.btn-interval-back {
+    /* height: 50px;
+    width: 50px; */
+    background-color: white;
+    position: fixed;
+    bottom: 50px;
+}
+
 
 #my-thumbnail {
     width: 350px;
