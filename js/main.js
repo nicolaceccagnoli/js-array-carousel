@@ -30,6 +30,8 @@ console.log('Indietro', myButtonBack, typeof myButtonBack);
 const myButtonForward = document.querySelector('.my-button-forward');
 console.log('Avanti', myButtonForward, typeof myButtonForward);
 
+const myButtonIntervalForward = document.querySelector('.btn-interval-forward')
+
 // Prendo il contenitore dall'HTML e lo inserisco in una variabile
 
 const myCard = document.querySelector('#my-card');
@@ -40,11 +42,25 @@ myCard.innerHTML = myImages[0];
 
 let counter = 0;
 
-// Setto l'intervallo di tempo per cui il carosello debba andare avanti tra le immagini ogni 3s
-// let carousel = setInterval(intervalPlayForward, 3000);
+// Creo la Variabile nella quale setto l'intervallo di tempo per cui il carosello debba andare avanti tra le immagini ogni 3s
+let carouselForward = setInterval(intervalPlayForward, 3000);
+console.log('carouselForward', carouselForward, typeof carouselForward)
 
-// Setto l'intervallo di tempo per cui il carosello debba andare indietro tra le immagini ogni 3s
-let carousel = setInterval(intervalPlayBack, 3000);
+// Creo la Variabile nella quale setto l'intervallo di tempo per cui il carosello debba andare indietro tra le immagini ogni 3s
+// let carouselBack = setInterval(intervalPlayBack, 3000);
+
+
+// Creo l'evento per cui il carosello debba smettere di andare in avanti secondo l'intervallo
+myButtonIntervalForward.addEventListener('click', function(){
+    // Setto la condizione per cui la variabile sia valida o nulla
+    if (carouselForward != null) {
+        clearInterval(carouselForward);
+
+        carouselForward = null;
+    }   else {
+        carouselForward = setInterval(intervalPlayForward, 3000);
+    }
+})
 
 
 // Creo l'evento che si verifica al clic del bottone "avanti" 
