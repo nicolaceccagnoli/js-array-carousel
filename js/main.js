@@ -4,6 +4,10 @@
     2) Creo un ciclo for che contenga un template literal;
     3) Tutte le immagini sono nascoste tranne la prima, che avrà una classe specifica che la renderà visibile.
 
+    BONUS
+        1) Aggiungere il "ciclo infinito" sul carosello (cioè dall'ultima slide passo alla prima e viceversa) OK
+        2) Aggiungere un pulsante per fermare l'avanzamento automatico
+
 */
 
 // 1) Rimuovere il markup statico e inserisco le immagini in un Array; 
@@ -36,59 +40,67 @@ myCard.innerHTML = myImages[0];
 
 let counter = 0;
 
+// Setto l'intervallo di tempo per cui il carosello debba andare avanti tra le immagini ogni 3s
+// let carousel = setInterval(intervalPlayForward, 3000);
+
+// Setto l'intervallo di tempo per cui il carosello debba andare indietro tra le immagini ogni 3s
+let carousel = setInterval(intervalPlayBack, 3000);
+
+
 // Creo l'evento che si verifica al clic del bottone "avanti" 
 
-myButtonForward.addEventListener('click', function(){
+// myButtonForward.addEventListener('click', function(){
     
-    if (counter < myImages.length-1) {
+//     if (counter < myImages.length-1) {
 
-    counter += 1;
+//     counter += 1;
 
-    myCard.innerHTML = myImages[counter];
+//     myCard.innerHTML = myImages[counter];
 
-    console.log(counter);
+//     console.log(counter);
 
     // Creo la condizione per cui se l'album finisce allora riparte dalla 1^ immagine
-    } else if (counter !== myImages.length) {
+//     } else if (counter !== myImages.length) {
         
-        counter = 0;
+//         counter = 0;
 
-        myCard.innerHTML = myImages[counter]
+//         myCard.innerHTML = myImages[counter]
 
-        console.log(counter);
+//         console.log(counter);
 
-    }
-})
+//     }
+// })
 
 // Creo una nuova variabile contatore che parta dalla fine dell'Array
 
-let counterInverse = (myImages.length);
+// let counterInverse = (myImages.length);
 
 // Creo l'evento che si verifica al clic del bottone "indietro" 
 
-myButtonBack.addEventListener('click', function(){
+// myButtonBack.addEventListener('click', function(){
 
-    if ((counter !== myImages.length) && (counter !== 0)) {
+//     if ((counter !== myImages.length) && (counter !== 0)) {
 
-        counter -= 1;
+//         counter -= 1;
 
-        myCard.innerHTML = myImages[counter];
+//         myCard.innerHTML = myImages[counter];
 
-        console.log(counter);
+//         console.log(counter);
 
         // Creo la condizione per cui se ci si trova sulla 1^ immagine allora l'album può fare il giro al contrario
 
-        }  else if (counter == 0) {
+//         }  else if (counter == 0) {
 
-            counter--;
+//             counter--;
 
-            counter = myImages.length-1;
+//             counter = myImages.length-1;
 
-            myCard.innerHTML = myImages[4];
+//             myCard.innerHTML = myImages[4];
 
-            console.log(counter);
-        }
-})
+//             console.log(counter);
+//         }
+// })
+
 
 /* BOUNS 2: 
 
@@ -147,4 +159,55 @@ for (let i = 0; i < imgListThumbnail.length; i ++ ) {
 
     })
 
+}
+
+// Creo La funzione che faccia andare avanti le card
+
+
+function intervalPlayForward(){
+    
+    if (counter < myImages.length-1) {
+
+    counter += 1;
+
+    myCard.innerHTML = myImages[counter];
+
+    console.log(counter);
+
+    // Creo la condizione per cui se l'album finisce allora riparte dalla 1^ immagine
+    } else if (counter !== myImages.length) {
+        
+        counter = 0;
+
+        myCard.innerHTML = myImages[counter]
+
+        console.log(counter);
+
+    }
+}
+
+// Creo La funzione che faccia andare indietro le card
+
+function intervalPlayBack (){
+
+    if ((counter !== myImages.length) && (counter !== 0)) {
+
+        counter -= 1;
+
+        myCard.innerHTML = myImages[counter];
+
+        console.log(counter);
+
+        // Creo la condizione per cui se ci si trova sulla 1^ immagine allora l'album può fare il giro al contrario
+
+        }  else if (counter == 0) {
+
+            counter--;
+
+            counter = myImages.length-1;
+
+            myCard.innerHTML = myImages[4];
+
+            console.log(counter);
+        }
 }
